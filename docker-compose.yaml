@@ -16,3 +16,12 @@ services:
         npm install
         npm run start:dev
     tty: true
+
+  slack-app:
+    image: node:22.13
+    working_dir: /usr/src/app
+    volumes:
+      - ./slack-app:/usr/src/app
+    ports:
+      - "3001:3000"
+    tty: true
