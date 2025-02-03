@@ -3,10 +3,11 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { BtsController } from './controllers/bts.controller';
 import { SlackService } from './services/slack.service';
+import { AuthService } from './services/auth.service';
 
 @Module({
   imports: [],
   controllers: [AppController, BtsController],
-  providers: [AppService, SlackService],
+  providers: [AppService, SlackService, AuthService],
 })
 export class AppModule {}
