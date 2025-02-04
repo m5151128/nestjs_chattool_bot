@@ -16,11 +16,13 @@ export class BtsService {
     const token = this.authService.createToken(postMessageInfo.talkUser.id, postMessageInfo.talkUser.email);
     const talkId = postMessageInfo.talkId;
 
+    const body = {
+      messageType: "text",
+      messageText: postMessageInfo.messageText,
+    }
+
     try {
-      await axios.post(`${BTS_BACKEND_API_URL}/app/v1/${talkId}/messages`, {
-        messageText: postMessageInfo.messageText,
-        talkId: postMessageInfo.talkId,
-      }, {
+      await axios.post(`${BTS_BACKEND_API_URL}/app/v1/talks/${talkId}/messages`, body, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
